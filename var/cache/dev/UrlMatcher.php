@@ -17,6 +17,8 @@ return [
         '/monstruos' => [[['_route' => 'monstruos', '_controller' => 'App\\Controller\\MonstruosController::monstruos'], null, ['GET' => 0], null, false, false, null]],
         '/magicas' => [[['_route' => 'magicas', '_controller' => 'App\\Controller\\MagicasController::magicas'], null, ['GET' => 0], null, false, false, null]],
         '/trampas' => [[['_route' => 'trampas', '_controller' => 'App\\Controller\\TrampasController::trampas'], null, ['GET' => 0], null, false, false, null]],
+        '/decks' => [[['_route' => 'decks', '_controller' => 'App\\Controller\\DecksController::decks'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/usuarios' => [[['_route' => 'usuarios', '_controller' => 'App\\Controller\\UsuariosController::usuarios'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -35,6 +37,8 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
+                .'|/deck/([^/]++)(*:183)'
+                .'|/usuario/([^/]++)/decks(*:214)'
             .')/?$}sD',
     ],
     [ // $dynamicRoutes
@@ -44,8 +48,10 @@ return [
         116 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
-        159 => [
-            [['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null],
+        159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
+        183 => [[['_route' => 'deckById', '_controller' => 'App\\Controller\\DecksController::deckById'], ['id'], ['GET' => 0], null, false, true, null]],
+        214 => [
+            [['_route' => 'decksbyUser', '_controller' => 'App\\Controller\\DecksController::decksByUser'], ['id'], ['GET' => 0], null, false, false, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

@@ -19,4 +19,8 @@ return [
     'monstruos' => [[], ['_controller' => 'App\\Controller\\MonstruosController::monstruos'], [], [['text', '/monstruos']], [], []],
     'magicas' => [[], ['_controller' => 'App\\Controller\\MagicasController::magicas'], [], [['text', '/magicas']], [], []],
     'trampas' => [[], ['_controller' => 'App\\Controller\\TrampasController::trampas'], [], [['text', '/trampas']], [], []],
+    'decks' => [[], ['_controller' => 'App\\Controller\\DecksController::decks'], [], [['text', '/decks']], [], []],
+    'deckById' => [['id'], ['_controller' => 'App\\Controller\\DecksController::deckById'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/deck']], [], []],
+    'decksbyUser' => [['id'], ['_controller' => 'App\\Controller\\DecksController::decksByUser'], [], [['text', '/decks'], ['variable', '/', '[^/]++', 'id'], ['text', '/usuario']], [], []],
+    'usuarios' => [[], ['_controller' => 'App\\Controller\\UsuariosController::usuarios'], [], [['text', '/usuarios']], [], []],
 ];

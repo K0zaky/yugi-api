@@ -50,3 +50,7 @@ b52941,172.19.0.1,GET,http://localhost:8082/monstruos,1714248750,,404
 b9bd5d,172.19.0.1,GET,http://localhost:8082/trampas,1714248916,,404
 4e821f,172.19.0.1,GET,http://localhost:8082/monstruos,1714249138,,200
 827e93,172.19.0.1,GET,http://localhost:8082/trampas,1714249284,,200
+0064fc,172.19.0.1,GET,http://localhost:8082/decks,1714249837,dca873,500
+dca873,172.19.0.1,GET,http://localhost:8082/decks,1714249837,,500
+32fa46,172.19.0.1,GET,http://localhost:8082/decks,1714249852,,200
+c81626,172.19.0.1,GET,http://localhost:8082/usuarios,1714250689,,200

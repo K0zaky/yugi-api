@@ -341,6 +341,13 @@
         <argument type="service" id=".service_locator.vdmMuyE.App\Controller\CartasController"/>
       </call>
     </service>
+    <service id="App\Controller\DecksController" class="App\Controller\DecksController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\DecksController"/>
+      </call>
+    </service>
     <service id="App\Controller\DefaultController" class="App\Controller\DefaultController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -367,6 +374,13 @@
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.vdmMuyE.App\Controller\TrampasController"/>
+      </call>
+    </service>
+    <service id="App\Controller\UsuariosController" class="App\Controller\UsuariosController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\UsuariosController"/>
       </call>
     </service>
     <service id=".legacy_controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
@@ -4898,6 +4912,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CartasController" class="App\Controller\CartasController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CartasController" class="App\Controller\CartasController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\CartasController" class="App\Controller\CartasController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\DecksController" class="App\Controller\DecksController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\DecksController" class="App\Controller\DecksController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\DecksController" class="App\Controller\DecksController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\DefaultController" class="App\Controller\DefaultController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\DefaultController" class="App\Controller\DefaultController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\DefaultController" class="App\Controller\DefaultController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -4910,6 +4927,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\TrampasController" class="App\Controller\TrampasController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\TrampasController" class="App\Controller\TrampasController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\TrampasController" class="App\Controller\TrampasController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\UsuariosController" class="App\Controller\UsuariosController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\UsuariosController" class="App\Controller\UsuariosController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\UsuariosController" class="App\Controller\UsuariosController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.CmORmuK" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5197,17 +5217,23 @@
         <argument key="serializer" type="service_closure" id="serializer"/>
       </argument>
     </service>
-    <service id=".service_locator.DSb6rBR" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.DWp8r7E" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\CartasController::cartas" type="service_closure" id=".service_locator.BuqDmxr"/>
+        <argument key="App\Controller\DecksController::deckById" type="service_closure" id=".service_locator.BuqDmxr"/>
+        <argument key="App\Controller\DecksController::decks" type="service_closure" id=".service_locator.BuqDmxr"/>
         <argument key="App\Controller\MagicasController::magicas" type="service_closure" id=".service_locator.BuqDmxr"/>
         <argument key="App\Controller\MonstruosController::monstruos" type="service_closure" id=".service_locator.BuqDmxr"/>
         <argument key="App\Controller\TrampasController::trampas" type="service_closure" id=".service_locator.BuqDmxr"/>
+        <argument key="App\Controller\UsuariosController::usuarios" type="service_closure" id=".service_locator.BuqDmxr"/>
         <argument key="App\Controller\CartasController:cartas" type="service_closure" id=".service_locator.BuqDmxr"/>
+        <argument key="App\Controller\DecksController:deckById" type="service_closure" id=".service_locator.BuqDmxr"/>
+        <argument key="App\Controller\DecksController:decks" type="service_closure" id=".service_locator.BuqDmxr"/>
         <argument key="App\Controller\MagicasController:magicas" type="service_closure" id=".service_locator.BuqDmxr"/>
         <argument key="App\Controller\MonstruosController:monstruos" type="service_closure" id=".service_locator.BuqDmxr"/>
         <argument key="App\Controller\TrampasController:trampas" type="service_closure" id=".service_locator.BuqDmxr"/>
+        <argument key="App\Controller\UsuariosController:usuarios" type="service_closure" id=".service_locator.BuqDmxr"/>
       </argument>
     </service>
     <service id=".service_locator.Y7gDuDN" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -5499,6 +5525,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.vdmMuyE" method="withContext"/>
     </service>
+    <service id=".service_locator.vdmMuyE.App\Controller\DecksController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\DecksController"/>
+      <argument>App\Controller\DecksController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+    </service>
     <service id=".service_locator.vdmMuyE.App\Controller\DefaultController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\DefaultController"/>
       <argument>App\Controller\DefaultController</argument>
@@ -5520,6 +5552,12 @@
     <service id=".service_locator.vdmMuyE.App\Controller\TrampasController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\TrampasController"/>
       <argument>App\Controller\TrampasController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+    </service>
+    <service id=".service_locator.vdmMuyE.App\Controller\UsuariosController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\UsuariosController"/>
+      <argument>App\Controller\UsuariosController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.vdmMuyE" method="withContext"/>
     </service>
@@ -5669,12 +5707,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.DSb6rBR"/>
+      <argument type="service" id=".service_locator.DWp8r7E"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.DSb6rBR"/>
+      <argument type="service" id=".service_locator.DWp8r7E"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -6066,7 +6104,7 @@
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger" public="false"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.DSb6rBR"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.DWp8r7E"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

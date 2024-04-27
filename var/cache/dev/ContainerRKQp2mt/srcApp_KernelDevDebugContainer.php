@@ -1,6 +1,6 @@
 <?php
 
-namespace ContainerYvxkiLU;
+namespace ContainerRKQp2mt;
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -39,10 +39,12 @@ class srcApp_KernelDevDebugContainer extends Container
         ];
         $this->methodMap = [
             'App\\Controller\\CartasController' => 'getCartasControllerService',
+            'App\\Controller\\DecksController' => 'getDecksControllerService',
             'App\\Controller\\DefaultController' => 'getDefaultControllerService',
             'App\\Controller\\MagicasController' => 'getMagicasControllerService',
             'App\\Controller\\MonstruosController' => 'getMonstruosControllerService',
             'App\\Controller\\TrampasController' => 'getTrampasControllerService',
+            'App\\Controller\\UsuariosController' => 'getUsuariosControllerService',
             'Doctrine\\Bundle\\DoctrineBundle\\Controller\\ProfilerController' => 'getProfilerControllerService',
             'Symfony\\Bundle\\FrameworkBundle\\Controller\\RedirectController' => 'getRedirectControllerService',
             'Symfony\\Bundle\\FrameworkBundle\\Controller\\TemplateController' => 'getTemplateControllerService',
@@ -435,6 +437,24 @@ class srcApp_KernelDevDebugContainer extends Container
     }
 
     /**
+     * Gets the public 'App\Controller\DecksController' shared autowired service.
+     *
+     * @return \App\Controller\DecksController
+     */
+    protected function getDecksControllerService()
+    {
+        include_once \dirname(__DIR__, 4).'/vendor/symfony/framework-bundle/Controller/ControllerTrait.php';
+        include_once \dirname(__DIR__, 4).'/vendor/symfony/framework-bundle/Controller/AbstractController.php';
+        include_once \dirname(__DIR__, 4).'/src/Controller/DecksController.php';
+
+        $this->services['App\\Controller\\DecksController'] = $instance = new \App\Controller\DecksController();
+
+        $instance->setContainer(($this->privates['.service_locator.vdmMuyE'] ?? $this->get_ServiceLocator_VdmMuyEService())->withContext('App\\Controller\\DecksController', $this));
+
+        return $instance;
+    }
+
+    /**
      * Gets the public 'App\Controller\DefaultController' shared autowired service.
      *
      * @return \App\Controller\DefaultController
@@ -502,6 +522,24 @@ class srcApp_KernelDevDebugContainer extends Container
         $this->services['App\\Controller\\TrampasController'] = $instance = new \App\Controller\TrampasController();
 
         $instance->setContainer(($this->privates['.service_locator.vdmMuyE'] ?? $this->get_ServiceLocator_VdmMuyEService())->withContext('App\\Controller\\TrampasController', $this));
+
+        return $instance;
+    }
+
+    /**
+     * Gets the public 'App\Controller\UsuariosController' shared autowired service.
+     *
+     * @return \App\Controller\UsuariosController
+     */
+    protected function getUsuariosControllerService()
+    {
+        include_once \dirname(__DIR__, 4).'/vendor/symfony/framework-bundle/Controller/ControllerTrait.php';
+        include_once \dirname(__DIR__, 4).'/vendor/symfony/framework-bundle/Controller/AbstractController.php';
+        include_once \dirname(__DIR__, 4).'/src/Controller/UsuariosController.php';
+
+        $this->services['App\\Controller\\UsuariosController'] = $instance = new \App\Controller\UsuariosController();
+
+        $instance->setContainer(($this->privates['.service_locator.vdmMuyE'] ?? $this->get_ServiceLocator_VdmMuyEService())->withContext('App\\Controller\\UsuariosController', $this));
 
         return $instance;
     }
@@ -1827,30 +1865,42 @@ class srcApp_KernelDevDebugContainer extends Container
     }
 
     /**
-     * Gets the private '.service_locator.DSb6rBR' shared service.
+     * Gets the private '.service_locator.DWp8r7E' shared service.
      *
      * @return \Symfony\Component\DependencyInjection\ServiceLocator
      */
-    protected function get_ServiceLocator_DSb6rBRService()
+    protected function get_ServiceLocator_DWp8r7EService()
     {
-        return $this->privates['.service_locator.DSb6rBR'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
+        return $this->privates['.service_locator.DWp8r7E'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
             'App\\Controller\\CartasController::cartas' => ['privates', '.service_locator.BuqDmxr', 'get_ServiceLocator_BuqDmxrService', false],
+            'App\\Controller\\DecksController::deckById' => ['privates', '.service_locator.BuqDmxr', 'get_ServiceLocator_BuqDmxrService', false],
+            'App\\Controller\\DecksController::decks' => ['privates', '.service_locator.BuqDmxr', 'get_ServiceLocator_BuqDmxrService', false],
             'App\\Controller\\MagicasController::magicas' => ['privates', '.service_locator.BuqDmxr', 'get_ServiceLocator_BuqDmxrService', false],
             'App\\Controller\\MonstruosController::monstruos' => ['privates', '.service_locator.BuqDmxr', 'get_ServiceLocator_BuqDmxrService', false],
             'App\\Controller\\TrampasController::trampas' => ['privates', '.service_locator.BuqDmxr', 'get_ServiceLocator_BuqDmxrService', false],
+            'App\\Controller\\UsuariosController::usuarios' => ['privates', '.service_locator.BuqDmxr', 'get_ServiceLocator_BuqDmxrService', false],
             'App\\Controller\\CartasController:cartas' => ['privates', '.service_locator.BuqDmxr', 'get_ServiceLocator_BuqDmxrService', false],
+            'App\\Controller\\DecksController:deckById' => ['privates', '.service_locator.BuqDmxr', 'get_ServiceLocator_BuqDmxrService', false],
+            'App\\Controller\\DecksController:decks' => ['privates', '.service_locator.BuqDmxr', 'get_ServiceLocator_BuqDmxrService', false],
             'App\\Controller\\MagicasController:magicas' => ['privates', '.service_locator.BuqDmxr', 'get_ServiceLocator_BuqDmxrService', false],
             'App\\Controller\\MonstruosController:monstruos' => ['privates', '.service_locator.BuqDmxr', 'get_ServiceLocator_BuqDmxrService', false],
             'App\\Controller\\TrampasController:trampas' => ['privates', '.service_locator.BuqDmxr', 'get_ServiceLocator_BuqDmxrService', false],
+            'App\\Controller\\UsuariosController:usuarios' => ['privates', '.service_locator.BuqDmxr', 'get_ServiceLocator_BuqDmxrService', false],
         ], [
             'App\\Controller\\CartasController::cartas' => '?',
+            'App\\Controller\\DecksController::deckById' => '?',
+            'App\\Controller\\DecksController::decks' => '?',
             'App\\Controller\\MagicasController::magicas' => '?',
             'App\\Controller\\MonstruosController::monstruos' => '?',
             'App\\Controller\\TrampasController::trampas' => '?',
+            'App\\Controller\\UsuariosController::usuarios' => '?',
             'App\\Controller\\CartasController:cartas' => '?',
+            'App\\Controller\\DecksController:deckById' => '?',
+            'App\\Controller\\DecksController:decks' => '?',
             'App\\Controller\\MagicasController:magicas' => '?',
             'App\\Controller\\MonstruosController:monstruos' => '?',
             'App\\Controller\\TrampasController:trampas' => '?',
+            'App\\Controller\\UsuariosController:usuarios' => '?',
         ]);
     }
 
@@ -2650,7 +2700,7 @@ class srcApp_KernelDevDebugContainer extends Container
         include_once \dirname(__DIR__, 4).'/vendor/symfony/http-kernel/Controller/ArgumentResolver/TraceableValueResolver.php';
         include_once \dirname(__DIR__, 4).'/vendor/symfony/http-kernel/Controller/ArgumentResolver/NotTaggedControllerValueResolver.php';
 
-        return $this->privates['debug.argument_resolver.not_tagged_controller'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver(($this->privates['.service_locator.DSb6rBR'] ?? $this->get_ServiceLocator_DSb6rBRService())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
+        return $this->privates['debug.argument_resolver.not_tagged_controller'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver(($this->privates['.service_locator.DWp8r7E'] ?? $this->get_ServiceLocator_DWp8r7EService())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
     }
 
     /**
@@ -2692,7 +2742,7 @@ class srcApp_KernelDevDebugContainer extends Container
         include_once \dirname(__DIR__, 4).'/vendor/symfony/http-kernel/Controller/ArgumentResolver/TraceableValueResolver.php';
         include_once \dirname(__DIR__, 4).'/vendor/symfony/http-kernel/Controller/ArgumentResolver/ServiceValueResolver.php';
 
-        return $this->privates['debug.argument_resolver.service'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver(($this->privates['.service_locator.DSb6rBR'] ?? $this->get_ServiceLocator_DSb6rBRService())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
+        return $this->privates['debug.argument_resolver.service'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver(($this->privates['.service_locator.DWp8r7E'] ?? $this->get_ServiceLocator_DWp8r7EService())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
     }
 
     /**
