@@ -1,0 +1,3 @@
+<?php //App%255CEntity%255CCarta%2523getIdDeck
+
+return [PHP_INT_MAX, []];

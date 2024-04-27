@@ -1,0 +1,3 @@
+<?php //App%255CController%255CMonstruosController
+
+return [PHP_INT_MAX, []];
