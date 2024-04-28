@@ -21,6 +21,7 @@ return [
     'trampas' => [[], ['_controller' => 'App\\Controller\\TrampasController::trampas'], [], [['text', '/trampas']], [], []],
     'decks' => [[], ['_controller' => 'App\\Controller\\DecksController::decks'], [], [['text', '/decks']], [], []],
     'deckById' => [['id'], ['_controller' => 'App\\Controller\\DecksController::deckById'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/deck']], [], []],
-    'decksbyUser' => [['id'], ['_controller' => 'App\\Controller\\DecksController::decksByUser'], [], [['text', '/decks'], ['variable', '/', '[^/]++', 'id'], ['text', '/usuario']], [], []],
+    'decksByUser' => [['id'], ['_controller' => 'App\\Controller\\DecksController::decksByUser'], [], [['text', '/decks'], ['variable', '/', '[^/]++', 'id'], ['text', '/usuario']], [], []],
     'usuarios' => [[], ['_controller' => 'App\\Controller\\UsuariosController::usuarios'], [], [['text', '/usuarios']], [], []],
+    'usuarioById' => [['id'], ['_controller' => 'App\\Controller\\UsuariosController::usuarioById'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/usuario']], [], []],
 ];

@@ -40,9 +40,9 @@ decks:
 deckById:
   path: /deck/{id}
   controller: App\Controller\DecksController::deckById
-  methods: GET
+  methods: GET|PUT|DELETE
 
-decksbyUser:
+decksByUser:
   path: /usuario/{id}/decks
   controller: App\Controller\DecksController::decksByUser
   methods: GET
@@ -53,3 +53,8 @@ usuarios:
   path: /usuarios
   controller: App\Controller\UsuariosController::usuarios
   methods: GET|POST
+
+usuarioById:
+  path: /usuario/{id}
+  controller: App\Controller\UsuariosController::usuarioById
+  methods: GET|PUT|DELETE
