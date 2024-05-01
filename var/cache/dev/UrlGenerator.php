@@ -22,6 +22,7 @@ return [
     'decks' => [[], ['_controller' => 'App\\Controller\\DecksController::decks'], [], [['text', '/decks']], [], []],
     'deckById' => [['id'], ['_controller' => 'App\\Controller\\DecksController::deckById'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/deck']], [], []],
     'decksByUser' => [['id'], ['_controller' => 'App\\Controller\\DecksController::decksByUser'], [], [['text', '/decks'], ['variable', '/', '[^/]++', 'id'], ['text', '/usuario']], [], []],
+    'cartasEnDecks' => [['deck_id', 'carta_id'], ['_controller' => 'App\\Controller\\DecksController::cartaEnDeck'], [], [['variable', '/', '[^/]++', 'carta_id'], ['text', '/carta'], ['variable', '/', '[^/]++', 'deck_id'], ['text', '/deck']], [], []],
     'usuarios' => [[], ['_controller' => 'App\\Controller\\UsuariosController::usuarios'], [], [['text', '/usuarios']], [], []],
     'usuarioById' => [['id'], ['_controller' => 'App\\Controller\\UsuariosController::usuarioById'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/usuario']], [], []],
 ];

@@ -37,10 +37,13 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
-                .'|/deck/([^/]++)(*:183)'
+                .'|/deck/([^/]++)(?'
+                    .'|(*:186)'
+                    .'|/carta/([^/]++)(*:209)'
+                .')'
                 .'|/usuario/([^/]++)(?'
-                    .'|/decks(*:217)'
-                    .'|(*:225)'
+                    .'|/decks(*:244)'
+                    .'|(*:252)'
                 .')'
             .')/?$}sD',
     ],
@@ -52,9 +55,10 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        183 => [[['_route' => 'deckById', '_controller' => 'App\\Controller\\DecksController::deckById'], ['id'], ['GET' => 0, 'PUT' => 1, 'DELETE' => 2], null, false, true, null]],
-        217 => [[['_route' => 'decksByUser', '_controller' => 'App\\Controller\\DecksController::decksByUser'], ['id'], ['GET' => 0], null, false, false, null]],
-        225 => [
+        186 => [[['_route' => 'deckById', '_controller' => 'App\\Controller\\DecksController::deckById'], ['id'], ['GET' => 0, 'PUT' => 1, 'DELETE' => 2], null, false, true, null]],
+        209 => [[['_route' => 'cartasEnDecks', '_controller' => 'App\\Controller\\DecksController::cartaEnDeck'], ['deck_id', 'carta_id'], ['PUT' => 0, 'DELETE' => 1], null, false, true, null]],
+        244 => [[['_route' => 'decksByUser', '_controller' => 'App\\Controller\\DecksController::decksByUser'], ['id'], ['GET' => 0], null, false, false, null]],
+        252 => [
             [['_route' => 'usuarioById', '_controller' => 'App\\Controller\\UsuariosController::usuarioById'], ['id'], ['GET' => 0, 'PUT' => 1, 'DELETE' => 2], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
