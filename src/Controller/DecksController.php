@@ -184,39 +184,97 @@ class DecksController extends AbstractController
     }
 
     //WIP
-    public function cartaEnDeck(SerializerInterface $serializer, Request $request){
-        $data = json_decode($request->getContent(), true);
-
-        $deckId = $request->get('deck_id');
-        $cartaId = $request->get('carta_id');
-
-        $deck = $this->getDoctrine()->getRepository(Deck::class)->find($deckId);
-
+    public function cartaEnDeck(SerializerInterface $serializer, Request $request, int $deck_id)
+    {
+        // Obtener el EntityManager
+        $entityManager = $this->getDoctrine()->getManager();
+    
+        // Obtener el Deck por su ID
+        $deck = $entityManager->getRepository(Deck::class)->find($deck_id);
+    
+        // Verificar si el Deck existe
         if (!$deck) {
             return new Response('Deck not found', Response::HTTP_NOT_FOUND);
         }
 
-        if ($request->isMethod("PUT")) {
-            $carta = $this->getDoctrine()->getRepository(Carta::class)->find($cartaId);
+        // Obtener todas las cartas asociadas al Deck
+        $cartasEnDeck = $deck->getIdCarta();
 
-            if (!$carta) {
-                return new Response('Carta not found', Response::HTTP_NOT_FOUND);
-            }
+        // Serializar las cartas y devolver la respuesta
+        $serializedCartas = $serializer->serialize(
+            $cartasEnDeck,
+            'json',
+            ['groups' => ['carta']]
+        );
 
-            //$deck->addCarta($carta);
-            
-        } elseif ($request->isMethod("DELETE")) {
-            //$deck->removeCarta($cartaId);
-        } else {
-            return new Response('Invalid request method', Response::HTTP_METHOD_NOT_ALLOWED);
-        }
-
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->flush();
-
-        $serializedDeck = $serializer->serialize($deck, 'json');
-        return new Response($serializedDeck, Response::HTTP_OK);
+        return new Response($serializedCartas);
     }
+
+    public function addCartaToDeck(Request $request, int $deck_id)
+{
+    $entityManager = $this->getDoctrine()->getManager();
+
+    // Obtener el mazo por su ID
+    $deck = $entityManager->getRepository(Deck::class)->find($deck_id);
+
+    // Verificar si el mazo existe
+    if (!$deck) {
+        return new Response('Deck not found', Response::HTTP_NOT_FOUND);
+    }
+
+    // Obtener el ID de la carta del cuerpo de la solicitud
+    $requestData = json_decode($request->getContent(), true);
+    $cartaId = $requestData['id_carta'];
+
+    // Obtener la carta por su ID
+    $carta = $entityManager->getRepository(Carta::class)->find($cartaId);
+
+    // Verificar si la carta existe
+    if (!$carta) {
+        return new Response('Carta not found', Response::HTTP_NOT_FOUND);
+    }
+
+    // Añadir la carta al mazo
+    $deck->addIdCarta($carta);
+
+    // Guardar los cambios en la base de datos
+    $entityManager->persist($deck);
+    $entityManager->flush();
+
+    // Devolver una respuesta exitosa
+    return new Response('Carta añadida al mazo exitosamente', Response::HTTP_OK);
+}
+
+public function removeCartaFromDeck(Request $request, int $deck_id, int $carta_id): Response
+{
+    // Obtener el EntityManager
+    $entityManager = $this->getDoctrine()->getManager();
+    
+    // Obtener el Deck por su ID
+    $deck = $entityManager->getRepository(Deck::class)->find($deck_id);
+    
+    // Verificar si el Deck existe
+    if (!$deck) {
+        return new Response('Deck not found', Response::HTTP_NOT_FOUND);
+    }
+
+    // Obtener la carta por su ID
+    $carta = $entityManager->getRepository(Carta::class)->find($carta_id);
+    
+    // Verificar si la carta existe
+    if (!$carta) {
+        return new Response('Carta not found', Response::HTTP_NOT_FOUND);
+    }
+
+    // Quitar la carta del Deck
+    $deck->removeIdCarta($carta);
+
+    // Guardar los cambios en la base de datos
+    $entityManager->flush();
+
+    // Devolver una respuesta exitosa
+    return new Response('Carta removed from Deck', Response::HTTP_OK);
+}
     
     
 }

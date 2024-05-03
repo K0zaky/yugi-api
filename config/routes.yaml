@@ -47,10 +47,20 @@ decksByUser:
   controller: App\Controller\DecksController::decksByUser
   methods: GET
 
-cartasEnDecks:
-  path: /deck/{deck_id}/carta/{carta_id}
+verCartasEnDecks:
+  path: /deck/{deck_id}/cartas
   controller: App\Controller\DecksController::cartaEnDeck
-  methods: PUT|DELETE
+  methods: GET
+
+anyadirCartasEnDecks:
+  path: /deck/{deck_id}
+  controller: App\Controller\DecksController::addCartaToDeck
+  methods: PUT
+
+borrarCartasEnDecks:
+  path: /deck/{deck_id}/carta/{carta_id}
+  controller: App\Controller\DecksController::removeCartaFromDeck
+  methods: DELETE
 
 
 #Usuarios

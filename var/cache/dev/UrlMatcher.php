@@ -39,11 +39,15 @@ return [
                 .')'
                 .'|/deck/([^/]++)(?'
                     .'|(*:186)'
-                    .'|/carta/([^/]++)(*:209)'
+                    .'|/carta(?'
+                        .'|s(*:204)'
+                        .'|/([^/]++)(*:221)'
+                    .')'
+                    .'|(*:230)'
                 .')'
                 .'|/usuario/([^/]++)(?'
-                    .'|/decks(*:244)'
-                    .'|(*:252)'
+                    .'|/decks(*:265)'
+                    .'|(*:273)'
                 .')'
             .')/?$}sD',
     ],
@@ -56,9 +60,11 @@ return [
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         186 => [[['_route' => 'deckById', '_controller' => 'App\\Controller\\DecksController::deckById'], ['id'], ['GET' => 0, 'PUT' => 1, 'DELETE' => 2], null, false, true, null]],
-        209 => [[['_route' => 'cartasEnDecks', '_controller' => 'App\\Controller\\DecksController::cartaEnDeck'], ['deck_id', 'carta_id'], ['PUT' => 0, 'DELETE' => 1], null, false, true, null]],
-        244 => [[['_route' => 'decksByUser', '_controller' => 'App\\Controller\\DecksController::decksByUser'], ['id'], ['GET' => 0], null, false, false, null]],
-        252 => [
+        204 => [[['_route' => 'verCartasEnDecks', '_controller' => 'App\\Controller\\DecksController::cartaEnDeck'], ['deck_id'], ['GET' => 0], null, false, false, null]],
+        221 => [[['_route' => 'borrarCartasEnDecks', '_controller' => 'App\\Controller\\DecksController::removeCartaFromDeck'], ['deck_id', 'carta_id'], ['DELETE' => 0], null, false, true, null]],
+        230 => [[['_route' => 'anyadirCartasEnDecks', '_controller' => 'App\\Controller\\DecksController::addCartaToDeck'], ['deck_id'], ['PUT' => 0], null, false, true, null]],
+        265 => [[['_route' => 'decksByUser', '_controller' => 'App\\Controller\\DecksController::decksByUser'], ['id'], ['GET' => 0], null, false, false, null]],
+        273 => [
             [['_route' => 'usuarioById', '_controller' => 'App\\Controller\\UsuariosController::usuarioById'], ['id'], ['GET' => 0, 'PUT' => 1, 'DELETE' => 2], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

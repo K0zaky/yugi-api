@@ -15,7 +15,10 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                 'float',
             ],
             'precision' => [
-                10,
+                null,
+            ],
+            'scale' => [
+                null,
             ],
             'nullable' => [
                 true,
