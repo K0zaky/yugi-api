@@ -16,6 +16,6 @@ if (!\class_exists(srcApp_KernelDevDebugContainer::class, false)) {
 
 return new \ContainerDMf9ri2\srcApp_KernelDevDebugContainer([
     'container.build_hash' => 'DMf9ri2',
-    'container.build_id' => '96a2acd1',
-    'container.build_time' => 1714768199,
+    'container.build_id' => 'e74ffc32',
+    'container.build_time' => 1714928173,
 ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerDMf9ri2');

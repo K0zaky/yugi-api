@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
+use Symfony\Component\Routing\Annotation\Route;
 
 class DecksController extends AbstractController
 {
@@ -161,7 +162,6 @@ class DecksController extends AbstractController
     {
         $userId = $request->get('id');
     
-        // Buscar todos los decks asociados al usuario por su ID
         $decks = $this->getDoctrine()->getRepository(Deck::class)
             ->findBy(['idUser' => $userId]);
     
@@ -170,7 +170,6 @@ class DecksController extends AbstractController
         }
     
         if ($request->isMethod("GET")) {
-            // Serializar los decks encontrados para devolverlos en la respuesta
             $serializedDecks = $serializer->serialize(
                 $decks,
                 'json',
@@ -183,24 +182,18 @@ class DecksController extends AbstractController
         return new JsonResponse(["msg" => $request->getMethod() . " not allowed"], 405);
     }
 
-    //WIP
     public function cartaEnDeck(SerializerInterface $serializer, Request $request, int $deck_id)
     {
-        // Obtener el EntityManager
         $entityManager = $this->getDoctrine()->getManager();
     
-        // Obtener el Deck por su ID
         $deck = $entityManager->getRepository(Deck::class)->find($deck_id);
     
-        // Verificar si el Deck existe
         if (!$deck) {
             return new Response('Deck not found', Response::HTTP_NOT_FOUND);
         }
 
-        // Obtener todas las cartas asociadas al Deck
         $cartasEnDeck = $deck->getIdCarta();
 
-        // Serializar las cartas y devolver la respuesta
         $serializedCartas = $serializer->serialize(
             $cartasEnDeck,
             'json',
@@ -210,69 +203,57 @@ class DecksController extends AbstractController
         return new Response($serializedCartas);
     }
 
-    public function addCartaToDeck(Request $request, int $deck_id)
-{
-    $entityManager = $this->getDoctrine()->getManager();
+    /**
+     * @Route("/deck/{deck_id}", name="add_carta_to_deck", methods={"PUT"})
+     */
+    public function addCartaToDeck(Request $request, $deck_id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        
 
-    // Obtener el mazo por su ID
-    $deck = $entityManager->getRepository(Deck::class)->find($deck_id);
+        $deck = $entityManager->getRepository(Deck::class)->find($deck_id);
+        if (!$deck) {
+            return new Response("No se encontró el mazo con el ID proporcionado.", Response::HTTP_NOT_FOUND);
+        }
 
-    // Verificar si el mazo existe
-    if (!$deck) {
-        return new Response('Deck not found', Response::HTTP_NOT_FOUND);
+        $data = json_decode($request->getContent(), true);
+        $carta_id = $data['id_carta'] ?? null;
+
+        if (!$carta_id) {
+            return new Response("El ID de la carta no fue proporcionado en la solicitud.", Response::HTTP_BAD_REQUEST);
+        }
+
+        $carta = $entityManager->getRepository(Carta::class)->find($carta_id);
+        if (!$carta) {
+            return new Response("No se encontró la carta con el ID proporcionado.", Response::HTTP_NOT_FOUND);
+        }
+
+        $deck->addIdCarta($carta);
+        $entityManager->flush();
+
+        return new Response("La carta se agregó exitosamente al mazo.", Response::HTTP_OK);
     }
-
-    // Obtener el ID de la carta del cuerpo de la solicitud
-    $requestData = json_decode($request->getContent(), true);
-    $cartaId = $requestData['id_carta'];
-
-    // Obtener la carta por su ID
-    $carta = $entityManager->getRepository(Carta::class)->find($cartaId);
-
-    // Verificar si la carta existe
-    if (!$carta) {
-        return new Response('Carta not found', Response::HTTP_NOT_FOUND);
-    }
-
-    // Añadir la carta al mazo
-    $deck->addIdCarta($carta);
-
-    // Guardar los cambios en la base de datos
-    $entityManager->persist($deck);
-    $entityManager->flush();
-
-    // Devolver una respuesta exitosa
-    return new Response('Carta añadida al mazo exitosamente', Response::HTTP_OK);
-}
-
+    
 public function removeCartaFromDeck(Request $request, int $deck_id, int $carta_id): Response
 {
-    // Obtener el EntityManager
     $entityManager = $this->getDoctrine()->getManager();
     
-    // Obtener el Deck por su ID
     $deck = $entityManager->getRepository(Deck::class)->find($deck_id);
     
-    // Verificar si el Deck existe
     if (!$deck) {
         return new Response('Deck not found', Response::HTTP_NOT_FOUND);
     }
 
-    // Obtener la carta por su ID
     $carta = $entityManager->getRepository(Carta::class)->find($carta_id);
     
-    // Verificar si la carta existe
     if (!$carta) {
         return new Response('Carta not found', Response::HTTP_NOT_FOUND);
     }
 
-    // Quitar la carta del Deck
     $deck->removeIdCarta($carta);
 
-    // Guardar los cambios en la base de datos
     $entityManager->flush();
 
-    // Devolver una respuesta exitosa
     return new Response('Carta removed from Deck', Response::HTTP_OK);
 }
     

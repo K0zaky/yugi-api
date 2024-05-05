@@ -15,6 +15,7 @@ return [
     '_profiler_router' => [['token'], ['_controller' => 'web_profiler.controller.router::panelAction'], [], [['text', '/router'], ['variable', '/', '[^/]++', 'token'], ['text', '/_profiler']], [], []],
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token'], ['text', '/_profiler']], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token'], ['text', '/_profiler']], [], []],
+    'add_carta_to_deck' => [['deck_id'], ['_controller' => 'App\\Controller\\DecksController::addCartaToDeck'], [], [['variable', '/', '[^/]++', 'deck_id'], ['text', '/deck']], [], []],
     'cartas' => [[], ['_controller' => 'App\\Controller\\CartasController::cartas'], [], [['text', '/cartas']], [], []],
     'monstruos' => [[], ['_controller' => 'App\\Controller\\MonstruosController::monstruos'], [], [['text', '/monstruos']], [], []],
     'magicas' => [[], ['_controller' => 'App\\Controller\\MagicasController::magicas'], [], [['text', '/magicas']], [], []],
