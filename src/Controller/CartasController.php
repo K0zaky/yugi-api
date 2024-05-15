@@ -27,4 +27,27 @@ class CartasController extends AbstractController
             return new Response($cartas);
         }
     }
+
+    public function cartaById(SerializerInterface $serializer, Request $request){
+
+        $idCarta=$request->get("id");
+        $carta=null;
+
+        $carta=$this->getDoctrine()
+        ->getRepository(Carta::class)
+        ->findOneBy(["id"=>$idCarta]);
+
+
+        if ($request->isMethod("GET")){
+
+    
+            $cartas = $serializer->serialize(
+                $carta,
+                'json',
+                ['groups' => ['carta']]
+            );
+    
+            return new Response($cartas);
+        }
+    }
 }

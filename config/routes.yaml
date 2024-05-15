@@ -9,12 +9,23 @@ cartas:
   controller: App\Controller\CartasController::cartas
   methods: GET
 
+cartaById:
+  path: /carta/{id}
+  controller: App\Controller\CartasController::cartaById
+  methods: GET
+
 
 #Monstruos
 monstruos:
   path: /monstruos
   controller: App\Controller\MonstruosController::monstruos
   methods: GET
+
+monstruoById:
+  path: /monstruo/{id}
+  controller: App\Controller\MonstruosController::monstruoById
+  methods: GET
+
 
 
 #Magicas
@@ -23,12 +34,24 @@ magicas:
   controller: App\Controller\MagicasController::magicas
   methods: GET
 
+magicaById:
+  path: /magica/{id}
+  controller: App\Controller\MagicasController::magicaById
+  methods: GET
+
+
 
 #Trampas
 trampas:
   path: /trampas
   controller: App\Controller\TrampasController::trampas
   methods: GET
+
+trampaById:
+  path: /trampa/{id}
+  controller: App\Controller\TrampasController::trampaById
+  methods: GET
+
 
 
 #Decks

@@ -5217,26 +5217,34 @@
         <argument key="serializer" type="service_closure" id="serializer"/>
       </argument>
     </service>
-    <service id=".service_locator.FFFUiLM" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.SxTsuSM" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Controller\CartasController::cartaById" type="service_closure" id=".service_locator.BuqDmxr"/>
         <argument key="App\Controller\CartasController::cartas" type="service_closure" id=".service_locator.BuqDmxr"/>
         <argument key="App\Controller\DecksController::cartaEnDeck" type="service_closure" id=".service_locator.BuqDmxr"/>
         <argument key="App\Controller\DecksController::deckById" type="service_closure" id=".service_locator.BuqDmxr"/>
         <argument key="App\Controller\DecksController::decks" type="service_closure" id=".service_locator.BuqDmxr"/>
         <argument key="App\Controller\DecksController::decksByUser" type="service_closure" id=".service_locator.BuqDmxr"/>
+        <argument key="App\Controller\MagicasController::magicaById" type="service_closure" id=".service_locator.BuqDmxr"/>
         <argument key="App\Controller\MagicasController::magicas" type="service_closure" id=".service_locator.BuqDmxr"/>
+        <argument key="App\Controller\MonstruosController::monstruoById" type="service_closure" id=".service_locator.BuqDmxr"/>
         <argument key="App\Controller\MonstruosController::monstruos" type="service_closure" id=".service_locator.BuqDmxr"/>
+        <argument key="App\Controller\TrampasController::trampaById" type="service_closure" id=".service_locator.BuqDmxr"/>
         <argument key="App\Controller\TrampasController::trampas" type="service_closure" id=".service_locator.BuqDmxr"/>
         <argument key="App\Controller\UsuariosController::usuarioById" type="service_closure" id=".service_locator.BuqDmxr"/>
         <argument key="App\Controller\UsuariosController::usuarios" type="service_closure" id=".service_locator.BuqDmxr"/>
+        <argument key="App\Controller\CartasController:cartaById" type="service_closure" id=".service_locator.BuqDmxr"/>
         <argument key="App\Controller\CartasController:cartas" type="service_closure" id=".service_locator.BuqDmxr"/>
         <argument key="App\Controller\DecksController:cartaEnDeck" type="service_closure" id=".service_locator.BuqDmxr"/>
         <argument key="App\Controller\DecksController:deckById" type="service_closure" id=".service_locator.BuqDmxr"/>
         <argument key="App\Controller\DecksController:decks" type="service_closure" id=".service_locator.BuqDmxr"/>
         <argument key="App\Controller\DecksController:decksByUser" type="service_closure" id=".service_locator.BuqDmxr"/>
+        <argument key="App\Controller\MagicasController:magicaById" type="service_closure" id=".service_locator.BuqDmxr"/>
         <argument key="App\Controller\MagicasController:magicas" type="service_closure" id=".service_locator.BuqDmxr"/>
+        <argument key="App\Controller\MonstruosController:monstruoById" type="service_closure" id=".service_locator.BuqDmxr"/>
         <argument key="App\Controller\MonstruosController:monstruos" type="service_closure" id=".service_locator.BuqDmxr"/>
+        <argument key="App\Controller\TrampasController:trampaById" type="service_closure" id=".service_locator.BuqDmxr"/>
         <argument key="App\Controller\TrampasController:trampas" type="service_closure" id=".service_locator.BuqDmxr"/>
         <argument key="App\Controller\UsuariosController:usuarioById" type="service_closure" id=".service_locator.BuqDmxr"/>
         <argument key="App\Controller\UsuariosController:usuarios" type="service_closure" id=".service_locator.BuqDmxr"/>
@@ -5713,12 +5721,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.FFFUiLM"/>
+      <argument type="service" id=".service_locator.SxTsuSM"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.FFFUiLM"/>
+      <argument type="service" id=".service_locator.SxTsuSM"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -6110,7 +6118,7 @@
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger" public="false"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.FFFUiLM"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.SxTsuSM"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

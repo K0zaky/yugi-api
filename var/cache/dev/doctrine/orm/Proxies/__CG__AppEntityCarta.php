@@ -180,7 +180,7 @@ class Carta extends \App\Entity\Carta implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         if ($this->__isInitialized__ === false) {
             return (int)  parent::getId();
@@ -190,17 +190,6 @@ class Carta extends \App\Entity\Carta implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setId(int $id): \App\Entity\Carta
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setId', [$id]);
-
-        return parent::setId($id);
     }
 
     /**
@@ -294,7 +283,7 @@ class Carta extends \App\Entity\Carta implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
-    public function getIdDeck(): \Doctrine\Common\Collections\Collection
+    public function getIdDeck(): ?\Doctrine\Common\Collections\Collection
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getIdDeck', []);
@@ -305,12 +294,34 @@ class Carta extends \App\Entity\Carta implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
-    public function setIdDeck(\Doctrine\Common\Collections\Collection $idDeck): \App\Entity\Carta
+    public function setIdDeck(?\Doctrine\Common\Collections\Collection $idDeck): \App\Entity\Carta
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setIdDeck', [$idDeck]);
 
         return parent::setIdDeck($idDeck);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addIdDeck(\App\Entity\Deck $deck): \App\Entity\Carta
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addIdDeck', [$deck]);
+
+        return parent::addIdDeck($deck);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeIdDeck(\App\Entity\Deck $deck): \App\Entity\Carta
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeIdDeck', [$deck]);
+
+        return parent::removeIdDeck($deck);
     }
 
 }

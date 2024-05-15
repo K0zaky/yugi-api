@@ -46,9 +46,15 @@ return [
                     .')'
                     .'|(*:238)'
                 .')'
+                .'|/carta/([^/]++)(*:262)'
+                .'|/m(?'
+                    .'|onstruo/([^/]++)(*:291)'
+                    .'|agica/([^/]++)(*:313)'
+                .')'
+                .'|/trampa/([^/]++)(*:338)'
                 .'|/usuario/([^/]++)(?'
-                    .'|/decks(*:273)'
-                    .'|(*:281)'
+                    .'|/decks(*:372)'
+                    .'|(*:380)'
                 .')'
             .')/?$}sD',
     ],
@@ -65,8 +71,12 @@ return [
         212 => [[['_route' => 'verCartasEnDecks', '_controller' => 'App\\Controller\\DecksController::cartaEnDeck'], ['deck_id'], ['GET' => 0], null, false, false, null]],
         229 => [[['_route' => 'borrarCartasEnDecks', '_controller' => 'App\\Controller\\DecksController::removeCartaFromDeck'], ['deck_id', 'carta_id'], ['DELETE' => 0], null, false, true, null]],
         238 => [[['_route' => 'anyadirCartasEnDecks', '_controller' => 'App\\Controller\\DecksController::addCartaToDeck'], ['deck_id'], ['PUT' => 0], null, false, true, null]],
-        273 => [[['_route' => 'decksByUser', '_controller' => 'App\\Controller\\DecksController::decksByUser'], ['id'], ['GET' => 0], null, false, false, null]],
-        281 => [
+        262 => [[['_route' => 'cartaById', '_controller' => 'App\\Controller\\CartasController::cartaById'], ['id'], ['GET' => 0], null, false, true, null]],
+        291 => [[['_route' => 'monstruoById', '_controller' => 'App\\Controller\\MonstruosController::monstruoById'], ['id'], ['GET' => 0], null, false, true, null]],
+        313 => [[['_route' => 'magicaById', '_controller' => 'App\\Controller\\MagicasController::magicaById'], ['id'], ['GET' => 0], null, false, true, null]],
+        338 => [[['_route' => 'trampaById', '_controller' => 'App\\Controller\\TrampasController::trampaById'], ['id'], ['GET' => 0], null, false, true, null]],
+        372 => [[['_route' => 'decksByUser', '_controller' => 'App\\Controller\\DecksController::decksByUser'], ['id'], ['GET' => 0], null, false, false, null]],
+        380 => [
             [['_route' => 'usuarioById', '_controller' => 'App\\Controller\\UsuariosController::usuarioById'], ['id'], ['GET' => 0, 'PUT' => 1, 'DELETE' => 2], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

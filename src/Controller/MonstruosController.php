@@ -27,4 +27,28 @@ class MonstruosController extends AbstractController
             return new Response($monstruos);
         }
     }
+
+
+    public function monstruoById(SerializerInterface $serializer, Request $request){
+
+        $idMonstruo=$request->get("id");
+        $monstruo=null;
+
+        $monstruo=$this->getDoctrine()
+        ->getRepository(Monstruo::class)
+        ->findOneBy(["id"=>$idMonstruo]);
+
+
+        if ($request->isMethod("GET")){
+
+    
+            $monstruos = $serializer->serialize(
+                $monstruo,
+                'json',
+                ['groups' => ['monstruo']]
+            );
+    
+            return new Response($monstruos);
+        }
+    }
 }

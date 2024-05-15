@@ -311,3 +311,12 @@ bea691,172.19.0.1,DELETE,http://localhost:8082/deck/1/carta/1,1714928214,,200
 bb99f5,172.19.0.1,GET,http://localhost:8082/deck/1/cartas,1714928217,,200
 11ce3d,172.19.0.1,PUT,http://localhost:8082/deck/1,1714928220,,200
 f27ba7,172.19.0.1,GET,http://localhost:8082/deck/1/cartas,1714928223,,200
+42e1b4,172.19.0.1,GET,http://localhost:8082/cartas,1715365071,,200
+d12de7,172.19.0.1,GET,http://localhost:8082/cartas,1715539657,,200
+66f1e6,172.19.0.1,GET,http://localhost:8082/carta/1,1715793044,,200
+a45096,172.19.0.1,GET,http://localhost:8082/magica/1,1715793174,,200
+3e52d6,172.19.0.1,GET,http://localhost:8082/magica/42,1715793202,,200
+4cecc7,172.19.0.1,GET,http://localhost:8082/monstruo/1,1715793311,,200
+aedea7,172.19.0.1,GET,http://localhost:8082/trampa/50,1715793412,,200
+5edca9,172.19.0.1,GET,http://localhost:8082/trampa/5,1715793419,,200
+4523f8,172.19.0.1,GET,http://localhost:8082/trampa/50,1715793423,,200
