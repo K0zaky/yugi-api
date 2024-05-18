@@ -185,6 +185,9 @@ CREATE TABLE deck (
     FOREIGN KEY (id_user) REFERENCES usuario(id)
 );
 
+INSERT INTO deck (nombre, precio, id_user) VALUES
+('jaumedeck', 2.0, 1);
+
 CREATE TABLE carta_deck (
     id_carta INT,
     id_deck INT,
@@ -192,3 +195,6 @@ CREATE TABLE carta_deck (
     FOREIGN KEY (id_carta) REFERENCES carta(id),
     FOREIGN KEY (id_deck) REFERENCES deck(id)
 );
+
+INSERT INTO carta_deck (id_carta, id_deck) VALUES
+(1, 1);

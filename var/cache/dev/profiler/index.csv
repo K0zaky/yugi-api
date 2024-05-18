@@ -320,3 +320,4 @@ a45096,172.19.0.1,GET,http://localhost:8082/magica/1,1715793174,,200
 aedea7,172.19.0.1,GET,http://localhost:8082/trampa/50,1715793412,,200
 5edca9,172.19.0.1,GET,http://localhost:8082/trampa/5,1715793419,,200
 4523f8,172.19.0.1,GET,http://localhost:8082/trampa/50,1715793423,,200
+0043d3,172.19.0.1,GET,http://localhost:8082/usuario/1/decks,1715952297,,200
