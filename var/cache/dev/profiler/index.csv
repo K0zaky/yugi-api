@@ -321,3 +321,8 @@ aedea7,172.19.0.1,GET,http://localhost:8082/trampa/50,1715793412,,200
 5edca9,172.19.0.1,GET,http://localhost:8082/trampa/5,1715793419,,200
 4523f8,172.19.0.1,GET,http://localhost:8082/trampa/50,1715793423,,200
 0043d3,172.19.0.1,GET,http://localhost:8082/usuario/1/decks,1715952297,,200
+a308c4,172.19.0.1,GET,http://localhost:8082/decks,1716062321,,200
+f1f735,172.19.0.1,PUT,http://localhost:8082/deck/1,1716197915,,200
+b3d12a,172.19.0.1,GET,http://localhost:8082/deck/1/cartas,1716197921,,200
+3cb5a1,172.19.0.1,PUT,http://localhost:8082/deck/1/anyadir,1716204618,,200
+32ff11,172.19.0.1,GET,http://localhost:8082/deck/1/cartas,1716204622,,200

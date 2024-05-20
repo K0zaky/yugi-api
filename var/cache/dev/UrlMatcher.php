@@ -40,21 +40,23 @@ return [
                 .'|/deck/([^/]++)(?'
                     .'|(*:186)'
                     .'|(*:194)'
-                    .'|/carta(?'
-                        .'|s(*:212)'
-                        .'|/([^/]++)(*:229)'
+                    .'|/(?'
+                        .'|carta(?'
+                            .'|s(*:215)'
+                            .'|/([^/]++)(*:232)'
+                        .')'
+                        .'|anyadir(*:248)'
                     .')'
-                    .'|(*:238)'
                 .')'
-                .'|/carta/([^/]++)(*:262)'
+                .'|/carta/([^/]++)(*:273)'
                 .'|/m(?'
-                    .'|onstruo/([^/]++)(*:291)'
-                    .'|agica/([^/]++)(*:313)'
+                    .'|onstruo/([^/]++)(*:302)'
+                    .'|agica/([^/]++)(*:324)'
                 .')'
-                .'|/trampa/([^/]++)(*:338)'
+                .'|/trampa/([^/]++)(*:349)'
                 .'|/usuario/([^/]++)(?'
-                    .'|/decks(*:372)'
-                    .'|(*:380)'
+                    .'|/decks(*:383)'
+                    .'|(*:391)'
                 .')'
             .')/?$}sD',
     ],
@@ -67,16 +69,16 @@ return [
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         186 => [[['_route' => 'add_carta_to_deck', '_controller' => 'App\\Controller\\DecksController::addCartaToDeck'], ['deck_id'], ['PUT' => 0], null, false, true, null]],
-        194 => [[['_route' => 'deckById', '_controller' => 'App\\Controller\\DecksController::deckById'], ['id'], ['GET' => 0, 'PUT' => 1, 'DELETE' => 2], null, false, true, null]],
-        212 => [[['_route' => 'verCartasEnDecks', '_controller' => 'App\\Controller\\DecksController::cartaEnDeck'], ['deck_id'], ['GET' => 0], null, false, false, null]],
-        229 => [[['_route' => 'borrarCartasEnDecks', '_controller' => 'App\\Controller\\DecksController::removeCartaFromDeck'], ['deck_id', 'carta_id'], ['DELETE' => 0], null, false, true, null]],
-        238 => [[['_route' => 'anyadirCartasEnDecks', '_controller' => 'App\\Controller\\DecksController::addCartaToDeck'], ['deck_id'], ['PUT' => 0], null, false, true, null]],
-        262 => [[['_route' => 'cartaById', '_controller' => 'App\\Controller\\CartasController::cartaById'], ['id'], ['GET' => 0], null, false, true, null]],
-        291 => [[['_route' => 'monstruoById', '_controller' => 'App\\Controller\\MonstruosController::monstruoById'], ['id'], ['GET' => 0], null, false, true, null]],
-        313 => [[['_route' => 'magicaById', '_controller' => 'App\\Controller\\MagicasController::magicaById'], ['id'], ['GET' => 0], null, false, true, null]],
-        338 => [[['_route' => 'trampaById', '_controller' => 'App\\Controller\\TrampasController::trampaById'], ['id'], ['GET' => 0], null, false, true, null]],
-        372 => [[['_route' => 'decksByUser', '_controller' => 'App\\Controller\\DecksController::decksByUser'], ['id'], ['GET' => 0], null, false, false, null]],
-        380 => [
+        194 => [[['_route' => 'deckById', '_controller' => 'App\\Controller\\DecksController::deckById'], ['id'], ['GET' => 0, 'DELETE' => 1], null, false, true, null]],
+        215 => [[['_route' => 'verCartasEnDecks', '_controller' => 'App\\Controller\\DecksController::cartaEnDeck'], ['deck_id'], ['GET' => 0], null, false, false, null]],
+        232 => [[['_route' => 'borrarCartasEnDecks', '_controller' => 'App\\Controller\\DecksController::removeCartaFromDeck'], ['deck_id', 'carta_id'], ['DELETE' => 0], null, false, true, null]],
+        248 => [[['_route' => 'anyadirCartasEnDecks', '_controller' => 'App\\Controller\\DecksController::addCartaToDeck'], ['deck_id'], ['PUT' => 0], null, false, false, null]],
+        273 => [[['_route' => 'cartaById', '_controller' => 'App\\Controller\\CartasController::cartaById'], ['id'], ['GET' => 0], null, false, true, null]],
+        302 => [[['_route' => 'monstruoById', '_controller' => 'App\\Controller\\MonstruosController::monstruoById'], ['id'], ['GET' => 0], null, false, true, null]],
+        324 => [[['_route' => 'magicaById', '_controller' => 'App\\Controller\\MagicasController::magicaById'], ['id'], ['GET' => 0], null, false, true, null]],
+        349 => [[['_route' => 'trampaById', '_controller' => 'App\\Controller\\TrampasController::trampaById'], ['id'], ['GET' => 0], null, false, true, null]],
+        383 => [[['_route' => 'decksByUser', '_controller' => 'App\\Controller\\DecksController::decksByUser'], ['id'], ['GET' => 0], null, false, false, null]],
+        391 => [
             [['_route' => 'usuarioById', '_controller' => 'App\\Controller\\UsuariosController::usuarioById'], ['id'], ['GET' => 0, 'PUT' => 1, 'DELETE' => 2], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

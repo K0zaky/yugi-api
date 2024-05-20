@@ -63,7 +63,7 @@ decks:
 deckById:
   path: /deck/{id}
   controller: App\Controller\DecksController::deckById
-  methods: GET|PUT|DELETE
+  methods: GET|DELETE
 
 decksByUser:
   path: /usuario/{id}/decks
@@ -76,7 +76,7 @@ verCartasEnDecks:
   methods: GET
 
 anyadirCartasEnDecks:
-  path: /deck/{deck_id}
+  path: /deck/{deck_id}/anyadir
   controller: App\Controller\DecksController::addCartaToDeck
   methods: PUT
 
