@@ -76,7 +76,7 @@ verCartasEnDecks:
   methods: GET
 
 anyadirCartasEnDecks:
-  path: /deck/{deck_id}/anyadir
+  path: /deck-anyadir/{deck_id}
   controller: App\Controller\DecksController::addCartaToDeck
   methods: PUT
 

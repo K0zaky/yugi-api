@@ -326,3 +326,4 @@ f1f735,172.19.0.1,PUT,http://localhost:8082/deck/1,1716197915,,200
 b3d12a,172.19.0.1,GET,http://localhost:8082/deck/1/cartas,1716197921,,200
 3cb5a1,172.19.0.1,PUT,http://localhost:8082/deck/1/anyadir,1716204618,,200
 32ff11,172.19.0.1,GET,http://localhost:8082/deck/1/cartas,1716204622,,200
+ecf2fe,172.19.0.1,PUT,http://localhost:8082/deck-anyadir/1,1716206430,,200
