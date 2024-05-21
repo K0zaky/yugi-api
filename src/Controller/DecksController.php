@@ -206,7 +206,7 @@ class DecksController extends AbstractController
     /**
      * @Route("/deck/{deck_id}", name="add_carta_to_deck", methods={"PUT"})
      */
-    public function addCartaToDeck(Request $request, $deck_id)
+    public function addCartaToDeck(SerializerInterface $serializer, Request $request, $deck_id)
     {
         $entityManager = $this->getDoctrine()->getManager();
         
@@ -231,7 +231,13 @@ class DecksController extends AbstractController
         $deck->addIdCarta($carta);
         $entityManager->flush();
 
-        return new Response("La carta se agregó exitosamente al mazo.", Response::HTTP_OK);
+        $serializedCarta = $serializer->serialize(
+            $carta,
+            'json',
+            ['groups' => ['carta']]
+        );
+
+        return new Response($serializedCarta);
     }
     
 public function removeCartaFromDeck(Request $request, int $deck_id, int $carta_id): Response

@@ -327,3 +327,9 @@ b3d12a,172.19.0.1,GET,http://localhost:8082/deck/1/cartas,1716197921,,200
 3cb5a1,172.19.0.1,PUT,http://localhost:8082/deck/1/anyadir,1716204618,,200
 32ff11,172.19.0.1,GET,http://localhost:8082/deck/1/cartas,1716204622,,200
 ecf2fe,172.19.0.1,PUT,http://localhost:8082/deck-anyadir/1,1716206430,,200
+9de53f,172.19.0.1,GET,http://localhost:8082/deck-anyadir/1,1716288953,0dce25,500
+0dce25,172.19.0.1,PUT,http://localhost:8082/deck-anyadir/1,1716288953,,500
+f30f39,172.19.0.1,GET,http://localhost:8082/deck-anyadir/1,1716289065,c34c99,500
+c34c99,172.19.0.1,PUT,http://localhost:8082/deck-anyadir/1,1716289065,,500
+91010c,172.19.0.1,PUT,http://localhost:8082/deck-anyadir/1,1716289256,,200
+2bd290,172.19.0.1,GET,http://localhost:8082/deck/1/cartas,1716289267,,200
