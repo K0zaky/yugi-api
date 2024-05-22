@@ -333,3 +333,8 @@ f30f39,172.19.0.1,GET,http://localhost:8082/deck-anyadir/1,1716289065,c34c99,500
 c34c99,172.19.0.1,PUT,http://localhost:8082/deck-anyadir/1,1716289065,,500
 91010c,172.19.0.1,PUT,http://localhost:8082/deck-anyadir/1,1716289256,,200
 2bd290,172.19.0.1,GET,http://localhost:8082/deck/1/cartas,1716289267,,200
+cf6387,172.19.0.1,POST,http://localhost:8082/decks,1716362890,,200
+e1534c,172.19.0.1,GET,http://localhost:8082/usuarios,1716366161,,200
+60e173,172.19.0.1,POST,http://localhost:8082/usuarios,1716366204,,200
+07049a,172.19.0.1,GET,http://localhost:8082/usuarios,1716366223,,200
+b88421,172.19.0.1,POST,http://localhost:8082/usuarios,1716370655,,200

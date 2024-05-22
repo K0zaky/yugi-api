@@ -41,7 +41,7 @@ class UsuariosController extends AbstractController
             $usuarios = $serializer->serialize(
                 $usuarios,
                 "json",
-                ["groups" => ["affiliation"]]);
+                ["groups" => ["usuario"]]);
 
             return new Response($usuarios);
         }
