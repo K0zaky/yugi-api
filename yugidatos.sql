@@ -167,8 +167,8 @@ INSERT INTO trampa (id, nombre, tipo_trampa, efecto, imagen) VALUES
 
 CREATE TABLE usuario (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nick VARCHAR(255),
-    correo VARCHAR(255),
+    nick VARCHAR(255) UNIQUE,
+    correo VARCHAR(255) UNIQUE,
     contrasenya VARCHAR(255),
     imagen VARCHAR(255)
 );

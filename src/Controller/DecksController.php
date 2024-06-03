@@ -247,13 +247,13 @@ public function removeCartaFromDeck(Request $request, int $deck_id, int $carta_i
     $deck = $entityManager->getRepository(Deck::class)->find($deck_id);
     
     if (!$deck) {
-        return new Response('Deck not found', Response::HTTP_NOT_FOUND);
+        return new Response('Deck no encontrado', Response::HTTP_NOT_FOUND);
     }
 
     $carta = $entityManager->getRepository(Carta::class)->find($carta_id);
     
     if (!$carta) {
-        return new Response('Carta not found', Response::HTTP_NOT_FOUND);
+        return new Response('Carta no encontrada', Response::HTTP_NOT_FOUND);
     }
 
     $deck->removeIdCarta($carta);
